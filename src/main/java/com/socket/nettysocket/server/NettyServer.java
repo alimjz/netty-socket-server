@@ -25,12 +25,6 @@ public class NettyServer {
 
     @PostConstruct
     private void init(){
-        System.out.println(Integer.toBinaryString(4));
-        System.out.println(Integer.toHexString(4));
-        RequestData requestData = new RequestData();
-        requestData.setStringValue("2");
-        requestData.setIntInput(2);
-        System.out.println(Arrays.toString(SerializationUtils.serialize(requestData)).replace(", ",""));
         NioEventLoopGroup parent = new NioEventLoopGroup();
         NioEventLoopGroup child = new NioEventLoopGroup();
         try {

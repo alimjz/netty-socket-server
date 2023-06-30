@@ -7,4 +7,5 @@ import lombok.ToString;
 @ToString
 public class ResponseData {
     private int response;
+    private String text;
 }

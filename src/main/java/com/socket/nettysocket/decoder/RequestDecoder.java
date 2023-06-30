@@ -14,11 +14,11 @@ public class RequestDecoder extends ReplayingDecoder<RequestData> {
         try {
             RequestData requestData = new RequestData();
             requestData.setIntInput(byteBuf.readInt());
-            int strValue = byteBuf.readByte();
+            int strValue = byteBuf.readInt();
             requestData.setStringValue(byteBuf.readCharSequence(strValue, StandardCharsets.UTF_8).toString());
             list.add(requestData);
         } catch (Exception e) {
-            list.add(12);
+            System.out.println("ERROR");
         }
     }
 }

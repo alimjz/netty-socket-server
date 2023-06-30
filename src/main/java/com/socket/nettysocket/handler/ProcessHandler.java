@@ -2,7 +2,6 @@ package com.socket.nettysocket.handler;
 
 import com.socket.nettysocket.model.RequestData;
 import com.socket.nettysocket.model.ResponseData;
-import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
@@ -18,9 +17,10 @@ public class ProcessHandler extends ChannelInboundHandlerAdapter {
             RequestData requestData = (RequestData) msg;
             ResponseData responseData = new ResponseData();
             responseData.setResponse(requestData.getIntInput() * 2);
+            responseData.setText("Ali Pot");
             ChannelFuture channelFuture = ctx.writeAndFlush(responseData);
             channelFuture.addListener(ChannelFutureListener.CLOSE);
-            log.info("Request Data is : {} ", responseData);
+            log.info("Response Data is : {} ", responseData);
         } catch (Exception e) {
             log.error("an exception happened : ",e);
         }
